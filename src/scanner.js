@@ -13,13 +13,14 @@ const keywords = [
   'try',
   'finally',
   'public',
+  'static',
   'get',
   'set',
 ];
 
 const operators = ['+', '-', '*', '/', '='];
 
-const delimiter = ['(', ')', '{', '}', '<', '>', ';', '.', ':'];
+const delimiter = ['(', ')', '{', '}', '<', '>', ';', '.', ':', ','];
 
 function isKeyword(character) {
   for (let i = 0; i < keywords.length; i++) {
@@ -84,7 +85,7 @@ export default function scanCodeQuery(code) {
   col = 1;
   for (let i = 0; i < code.length; i++) {
     let character = getCharacter(code[i], code[i + 1], i);
-    if (character) {
+    if (character && character !== ' ') {
       if (isKeyword(character)) {
         result.push({
           id: i + 'KEYWORD',
