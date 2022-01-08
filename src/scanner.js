@@ -1,16 +1,25 @@
-const query =
-  'int i =5 ; int j = 2 ; int sum=a+b ; if(x)return x \nstring j= "Hi" ; void printSum(){Console.WriteLine(sum)}';
-const TOKEN = {
-  type: '',
-  row: 0,
-  col: 0,
-};
-
-const keywords = ['if', 'else', 'int', 'string', 'void', 'return'];
+const keywords = [
+  'if',
+  'else',
+  'int',
+  'string',
+  'void',
+  'return',
+  'class',
+  'var',
+  'List',
+  'foreach',
+  'while',
+  'try',
+  'finally',
+  'public',
+  'get',
+  'set',
+];
 
 const operators = ['+', '-', '*', '/', '='];
 
-const delimiter = ['(', ')', '{', '}', '<', '>', ';', '.'];
+const delimiter = ['(', ')', '{', '}', '<', '>', ';', '.', ':'];
 
 function isKeyword(character) {
   for (let i = 0; i < keywords.length; i++) {
@@ -43,10 +52,6 @@ let row = 1;
 let col = 1;
 let temp = [];
 let result = [];
-
-function convertArrayToString(array) {
-  return array.join('');
-}
 
 function getCharacter(word, next, _index) {
   temp.push(word);
@@ -119,3 +124,20 @@ export default function scanCodeQuery(code) {
   }
   return result;
 }
+// code example ....
+// public class funcexer3
+// {
+//     public static int Sum(int num1, int num2)
+//     {
+//         int total;
+//         total = num1 + num2;
+//         return total;
+//     }
+//     public static void Main()
+//     {
+//       int n1= Convert.ToInt32(Console.ReadLine());
+//       Console.Write("Enter");
+//       int n2= Convert.ToInt32(Console.ReadLine());
+//       Console.WriteLine(Sum(n1,n2) );
+//     }
+// }

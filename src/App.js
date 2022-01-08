@@ -20,8 +20,9 @@ const codeEditorStyle = {
   backgroundColor: '#f5f5f5',
   fontFamily:
     'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
-  marginTop: '5rem',
-  minHeight: '7rem',
+  marginTop: '2rem',
+  height: '20rem',
+  overflowY: 'scroll',
 };
 const btnStyle = {
   margin: '1.5rem 0 ',
